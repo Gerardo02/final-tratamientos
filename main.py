@@ -29,7 +29,6 @@ stringAfinacion = StringVar()
 
 
 def iniciar():
-
     def analizar(stream):
         data = stream.read(CHUNK, exception_on_overflow = False)
         waveData = wave.struct.unpack("%dh"%(CHUNK), data)
@@ -100,10 +99,9 @@ def iniciar():
                 Afinacion = "Se necesita aflojar la cuerda"
         else:
             Cuerda = "Cuerda no identificada"
-            Afinacion = "Presione el botón 'Iniciar' otra vez"
+            Afinacion = "Pulsa el boton 'iniciar' para volver a intentarlo"
 
         stringCuerda.set(Cuerda)
-        stringFrecuenciaA.set(FrecuenciaActual)
         stringAfinacion.set(Afinacion)
 
 
@@ -130,7 +128,7 @@ btnCalcular.pack()
 laCuerda = Label(ventana, textvariable = stringCuerda)
 laCuerda.pack()
 
-frecuenciaA = Label(ventana, textvariable = stringFrecuenciaA)
+frecuenciaA = Label(ventana, text = "Frecuencia Actual")
 frecuenciaA.pack()
 
 frecuencia = Label(ventana, textvariable = stringFrecuencia)
